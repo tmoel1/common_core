@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-static long	ft_atoi(const char *str)
+static long	ft_atol(const char *str)
 {
 	int			i;
 	int			sign;
@@ -37,7 +37,7 @@ static void	append_node(t_stack_node **stack, int n)
 	if (!node)
 		return ;
 	node->next = NULL;
-	node->nbr = n;
+	node->number = n;
 	if (!(*stack))
 	{
 		*stack = node;
@@ -71,7 +71,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	}
 }
 
-t_stack_node	*get_cheapest(t_stack_node *stack)
+t_stack_node	*find_cheapest(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);

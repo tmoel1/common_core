@@ -30,7 +30,7 @@ bool stack_sorted(t_stack_node *stack)
 		return (1);
 	while (stack->next)
 	{
-		if (stack->nbr > stack->next->nbr)
+		if (stack->number > stack->next->number)
 			return (false);
 		stack = stack->next;
 	}
@@ -47,9 +47,9 @@ t_stack_node *find_min(t_stack_node *stack)
 	min = LONG_MAX;
 	while (stack)
 	{
-		if (stack->nbr < min)
+		if (stack->number < min)
 		{
-			min = stack->nbr;
+			min = stack->number;
 			min_node = stack;
 		}
 		stack = stack->next;
@@ -57,22 +57,22 @@ t_stack_node *find_min(t_stack_node *stack)
 	return (min_node);
 }
 
-t_stack_node *find_max(t_stack_node *stack)
+t_stack_node *find_biggest(t_stack_node *stack)
 {
-	long max;
-	t_stack_node *max_node;
+	long biggest;
+	t_stack_node *biggest_node;
 
 	if (!stack)
 		return (NULL);
-	max = LONG_MIN;
+	biggest = LONG_MIN;
 	while (stack)
 	{
-		if (stack->nbr > max)
+		if (stack->number > biggest)
 		{
-			max = stack->nbr;
-			max_node = stack;
+			biggest = stack->number;
+			biggest_node = stack;
 		}
 		stack = stack->next;
 	}
-	return (max_node);
+	return (biggest_node);
 }

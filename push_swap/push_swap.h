@@ -9,7 +9,7 @@
 typedef struct s_stack_node
 {
 	int						number;
-	int						position;
+	int						index;
 	int						cost;
 	bool					above_median;
 	bool					cheapest;

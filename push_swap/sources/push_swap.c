@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 		else if (stack_len(a) == 3)
 			sort_three(&a);
 		else
-			sort_stacks(&a, &b);
+			turk_algo(&a, &b);
 	}
 	free_stack(&a);
 	return (0);

@@ -36,11 +36,13 @@ static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 	pa(a, b, false);
 }
 
-static void	min_on_top(t_stack_node **a, t_stack_node **b)
+// change the name of below to smallest on top? and see what other functions use find_min
+
+static void	smallest_on_top(t_stack_node **a, t_stack_node **b)
 {
-	while ((*a)->nbr != find_min(*a)->nbr)
+	while ((*a)->number != find_smallest(*a)->number)
 	{
-		if (find_min(*a)->above_medium)
+		if (find_smallest(*a)->above_medium)
 			ra(a, false);
 		else
 			rra(a, false);

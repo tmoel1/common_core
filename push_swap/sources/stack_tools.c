@@ -37,24 +37,24 @@ bool stack_sorted(t_stack_node *stack)
 	return (true);
 }
 
-t_stack_node *find_min(t_stack_node *stack)
+t_stack_node *find_smallest(t_stack_node *stack)
 {
-	long min;
-	t_stack_node *min_node;
+	long smallest;
+	t_stack_node *smallest_node;
 
 	if (!stack)
 		return (NULL);
-	min = LONG_MAX;
+	smallest = LONG_MAX;
 	while (stack)
 	{
-		if (stack->number < min)
+		if (stack->number < smallest)
 		{
-			min = stack->number;
-			min_node = stack;
+			smallest = stack->number;
+			msmallest_node = stack;
 		}
 		stack = stack->next;
 	}
-	return (min_node);
+	return (smallest_node);
 }
 
 t_stack_node *find_biggest(t_stack_node *stack)

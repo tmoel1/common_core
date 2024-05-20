@@ -76,3 +76,14 @@ void	prep_for_push(t_stack_node **stack,
 		}	
 	}
 }
+
+void	smallest_on_top(t_stack_node **a, t_stack_node **b)
+{
+	while ((*a)->number != find_smallest(*a)->number)
+	{
+		if (find_smallest(*a)->above_medium)
+			ra(a, false);
+		else
+			rra(a, false);
+	}
+}

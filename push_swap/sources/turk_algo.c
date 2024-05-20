@@ -36,19 +36,6 @@ static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 	pa(a, b, false);
 }
 
-// change the name of below to smallest on top? and see what other functions use find_min
-
-static void	smallest_on_top(t_stack_node **a, t_stack_node **b)
-{
-	while ((*a)->number != find_smallest(*a)->number)
-	{
-		if (find_smallest(*a)->above_medium)
-			ra(a, false);
-		else
-			rra(a, false);
-	}
-}
-
 void	turk_algo(t_stack_node **a, t_stack_node **b)
 {
 	int	len_a;

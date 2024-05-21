@@ -77,6 +77,7 @@ void	prep_for_push(t_stack_node **stack,
 	}
 }
 
+// this is the one from turk_algo.c:
 void	smallest_on_top(t_stack_node **a, t_stack_node **b)
 {
 	while ((*a)->number != find_smallest(*a)->number)

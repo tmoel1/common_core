@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:39:04 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 14:06:30 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:36:00 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ void	prep_for_push(t_stack_node **stack,
 }
 
 // this is the one from turk_algo.c:
-void	smallest_on_top(t_stack_node **a, t_stack_node **b)
+void	smallest_on_top(t_stack_node **a)
 {
-	while ((*a)->number != find_smallest((*a)->number))
+	while ((*a)->number != find_smallest(*a)->number)
 	{
 		if (find_smallest(*a)->above_median)
 			ra(a, false);

@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:50:12 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 11:05:32 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:40:24 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*cheapest;
 
-	cheapest = find_cheapest(*a, *b);
+	cheapest = find_cheapest(*a);
 	if (cheapest->above_median && cheapest->target->above_median)
 		rotate_both(a, b, cheapest);
 	else if (!cheapest->above_median && !cheapest->target->above_median)
@@ -71,5 +71,5 @@ void	turk_algo(t_stack_node **a, t_stack_node **b)
 		move_b_to_a(a, b);
 	}
 	current_index(*a);
-	min_on_top(a);
+	smallest_on_top(a);
 }

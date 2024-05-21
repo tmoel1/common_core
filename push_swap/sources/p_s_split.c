@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:21:51 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 11:29:00 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:36:50 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ char **split(char *s, char c) //Define a function that returns the substrings in
 }
 
 
-/*
+
  Both functions, `ft_split()` `split()` split a string into an array of substrings using a specified delimiter character. 
  However, the differences are:
 

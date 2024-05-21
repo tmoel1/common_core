@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:37:07 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 10:38:52 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:31:40 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 			current_a = current_a->next;
 		}
 		if (best_match == LONG_MAX)
-			b->target = find_min(a);
+			b->target = find_smallest(a);
 		else
 			b->target = target_node;
 		b = b->next;

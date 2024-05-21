@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:41:37 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 10:41:45 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:37:47 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		if (stack_len(a) == 2)
 			sa(&a, false);
 		else if (stack_len(a) == 3)
-			sort_three(&a);
+			sort_3(&a);
 		else
 			turk_algo(&a, &b);
 	}

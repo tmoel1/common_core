@@ -3,30 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+         #
+#    By: tmoeller <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/21 11:33:27 by tmoeller          #+#    #+#              #
-#    Updated: 2024/05/21 15:52:13 by tmoeller         ###   ########.fr        #
+#    Created: 2023/11/07 12:53:17 by tmoeller          #+#    #+#              #
+#    Updated: 2023/11/07 12:53:25 by tmoeller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+SCRS	=	ft_printf.c		\
+			print_char.c	\
+			print_hex.c		\
+			print_number.c	\
+			print_pointer.c	\
+			print_string.c	\
 
-SCRS	=	sources/error_handling.c	\
-			sources/init_a_to_b.c	\
-			sources/init_b_to_a.c	\
-			sources/init_tools.c	\
-			sources/p_s_split.c		\
-			sources/push_swap.c		\
-			sources/push.c		\
-			sources/reverse_rotate.c	\
-			sources/rotate.c		\
-			sources/sort_3.c		\
-			sources/stack_tools.c	\
-			sources/swap.c		\
-			sources/turk_algo.c		\
-			ft_printf/*.c		\
-
+NAME = libftprintf.a
 OBJS = ${SCRS:.c=.o}
 LIBC = ar rcs
 CC = cc
@@ -36,11 +27,8 @@ CFLAGS = -Wall -Wextra -Werror
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-ft_printf:
-		$(MAKE) -C ft_printf
-
-${NAME}: ${OBJS} ft_printf
-		${LIBC} ${NAME} ${OBJS} ft_printf/*.o
+${NAME}: ${OBJS}
+		${LIBC} ${NAME} ${OBJS}
 
 all: ${NAME}
 
@@ -49,8 +37,7 @@ clean:
 
 fclean: clean
 		${RM} ${NAME}
-		$(MAKE) -C ft_printf fclean
 
 re: fclean all
 
-.PHONY : all clean fclean re ft_printf
+.PHONY : all clean fclean re

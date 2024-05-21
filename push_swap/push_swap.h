@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:31:11 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 13:14:31 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:22:35 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_stack_node
 
 // Tools
 
-t_stack_node	*find_smallest(t_stack_node *stack)
+t_stack_node	*find_smallest(t_stack_node *stack);
 
 // Stack Operations
 

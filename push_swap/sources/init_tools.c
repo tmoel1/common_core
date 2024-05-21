@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:39:04 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 13:18:27 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:06:30 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	smallest_on_top(t_stack_node **a, t_stack_node **b)
 
 // version to help with segfaults below in case of a returned null by find_smallest
 // would need to avoid assignment in controle structure error however
+/*
 void	smallest_on_top(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*smallest_node;
@@ -116,3 +117,4 @@ void	smallest_on_top(t_stack_node **a, t_stack_node **b)
 			rra(a, false);
 	}
 }
+*/

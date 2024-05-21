@@ -1,8 +1,20 @@
-#include "../includes/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_tools.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:47:29 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 10:49:45 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int stack_len(t_stack_node *stack)
+#include "../push_swap.h"
+
+int	stack_len(t_stack_node *stack)
 {
-	int count;
+	int	count;
 
 	if (!stack)
 		return (0);
@@ -15,7 +27,7 @@ int stack_len(t_stack_node *stack)
 	return (count);
 }
 
-t_stack_node *find_last(t_stack_node *stack)
+t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
@@ -24,7 +36,7 @@ t_stack_node *find_last(t_stack_node *stack)
 	return (stack);
 }
 
-bool stack_sorted(t_stack_node *stack)
+bool	stack_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);
@@ -37,10 +49,10 @@ bool stack_sorted(t_stack_node *stack)
 	return (true);
 }
 
-t_stack_node *find_smallest(t_stack_node *stack)
+t_stack_node	*find_smallest(t_stack_node *stack)
 {
-	long smallest;
-	t_stack_node *smallest_node;
+	long			smallest;
+	t_stack_node	*smallest_node;
 
 	if (!stack)
 		return (NULL);
@@ -50,17 +62,17 @@ t_stack_node *find_smallest(t_stack_node *stack)
 		if (stack->number < smallest)
 		{
 			smallest = stack->number;
-			msmallest_node = stack;
+			smallest_node = stack;
 		}
 		stack = stack->next;
 	}
 	return (smallest_node);
 }
 
-t_stack_node *find_biggest(t_stack_node *stack)
+t_stack_node	*find_biggest(t_stack_node *stack)
 {
-	long biggest;
-	t_stack_node *biggest_node;
+	long			biggest;
+	t_stack_node	*biggest_node;
 
 	if (!stack)
 		return (NULL);

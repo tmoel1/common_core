@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   turk_algo.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:50:12 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 11:05:32 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+static void	rotate_both(t_stack_node **a, t_stack_node **b,
+				t_stack_node *cheapest)
 {
 	while (*b != cheapest->target && *a != cheapest)
 		rr(a, b, false);
@@ -8,7 +21,8 @@ static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheape
 	current_index(*b);
 }
 
-static void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+static void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
+				t_stack_node *cheapest)
 {
 	while (*b != cheapest->target && *a != cheapest)
 		rrr(a, b, false);
@@ -59,4 +73,3 @@ void	turk_algo(t_stack_node **a, t_stack_node **b)
 	current_index(*a);
 	min_on_top(a);
 }
-	

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:43:44 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 11:00:46 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-static void		rotate(t_stack_node **stack)
+static void	rotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
 

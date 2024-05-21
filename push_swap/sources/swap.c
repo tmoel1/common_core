@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:49:53 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 11:01:10 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-static void		swap(t_stack_node **head)
+static void	swap(t_stack_node **head)
 {
 	if (!*head || !(*head)->next)
 		return ;

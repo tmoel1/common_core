@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:31:11 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 13:14:31 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <limits.h>
 # include <stdbool.h>
-#include <unistd.h>
+# include <unistd.h>
 # include "./ft_printf/ft_printf.h"
 
 typedef struct s_stack_node
@@ -23,6 +35,8 @@ typedef struct s_stack_node
 // Initialisations
 
 // Tools
+
+t_stack_node	*find_smallest(t_stack_node *stack)
 
 // Stack Operations
 

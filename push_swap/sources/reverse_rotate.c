@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:43:00 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 11:00:43 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-static void		reverse_rotate(t_stack_node **stack)
+static void	reverse_rotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
-	
+
 	if (!*stack || !(*stack)->next)
 		return ;
-
 	last = find_last(*stack);
 	last->prev->next = NULL;
 	last->next = *stack;

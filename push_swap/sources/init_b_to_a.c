@@ -1,28 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_b_to_a.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:37:07 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 10:38:52 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_a;
 	t_stack_node	*target_node;
-	long			best_match_index;
+	long			best_match;
 
 	while (b)
 	{
-		best_match_index = LONG_MAX;
+		best_match = LONG_MAX;
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->number > b->number && current_a->number < best_match_index)
+			if (current_a->number > b->number && current_a->number < best_match)
 			{
-				best_match_index = current_a->number;
+				best_match = current_a->number;
 				target_node = current_a;
 			}
 			current_a = current_a->next;
 		}
-		if (best_match_index == LONG_MAX)
-			b->target_node = find_min(a);
+		if (best_match == LONG_MAX)
+			b->target = find_min(a);
 		else
-			b->target_node = target_node;
+			b->target = target_node;
 		b = b->next;
 	}
 }

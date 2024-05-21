@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/21 10:42:11 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/05/21 11:00:21 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-static void push(t_stack_node **dest, t_stack_node **source)
+static void	push(t_stack_node **dest, t_stack_node **source)
 {
 	t_stack_node	*to_push;
 
-if	(!*source)
+	if (!*source)
 		return ;
 	to_push = *source;
 	*source = (*source)->next;

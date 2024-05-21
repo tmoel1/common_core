@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:50:12 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 15:40:24 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:39:42 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,4 @@ void	turk_algo(t_stack_node **a, t_stack_node **b)
 	current_index(*a);
 	smallest_on_top(a);
 }
+// check to see if all of the stack_len, sorted etc have a if !a kinda security

@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:39:04 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/22 13:40:37 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:01:39 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	prep_for_push(t_stack_node **stack,
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median) // this is the line that causes the segfault
+			if (top_node->above_median) //segfaulty one
 				ra(stack, false);
 			else
 				rra(stack, false);

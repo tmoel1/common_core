@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:50:12 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/22 13:55:39 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:58:04 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 
 static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-	prep_for_push(a, (*b)->target, 'a');
+	prep_for_push(a, (*b)->target, 'a'); // seems to be a probelm at one of the last move_b_to_a's
 	pa(a, b, false);
 }
 
@@ -65,13 +65,15 @@ void	turk_algo(t_stack_node **a, t_stack_node **b)
 		pb(a, b, false);
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
-		init_nodes_b(*a, *b);
+		init_nodes_a(*a, *b);
 		move_a_to_b(a, b);
 	}
 	sort_3(a);
 	while (*b)
 	{
-		init_nodes_a(*a, *b);
+		ft_printf("here i am\n");
+		init_nodes_b(*a, *b);
+		ft_printf("here i am again\n");
 		move_b_to_a(a, b);
 	}
 	current_index(*a);

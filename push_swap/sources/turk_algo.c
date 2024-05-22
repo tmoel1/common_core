@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:50:12 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 17:39:42 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:55:39 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	t_stack_node	*cheapest;
 
 	cheapest = find_cheapest(*a);
+	if (!cheapest)
+		return ;
+	if (!cheapest->target)
+		return ;
 	if (cheapest->above_median && cheapest->target->above_median)
 		rotate_both(a, b, cheapest);
 	else if (!cheapest->above_median && !cheapest->target->above_median)
@@ -74,3 +78,7 @@ void	turk_algo(t_stack_node **a, t_stack_node **b)
 	smallest_on_top(a);
 }
 // check to see if all of the stack_len, sorted etc have a if !a kinda security
+// could be "find cheapest??"
+
+
+// in fact it has to be underneath sort 3

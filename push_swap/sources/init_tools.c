@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:39:04 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 17:34:22 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:40:37 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,13 @@ void	prep_for_push(t_stack_node **stack,
 						t_stack_node *top_node,
 						char stack_name)
 {
+	if (!stack || !top_node)
+		return ;
 	while (*stack != top_node)
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median)
+			if (top_node->above_median) // this is the line that causes the segfault
 				ra(stack, false);
 			else
 				rra(stack, false);
@@ -92,6 +94,7 @@ void	prep_for_push(t_stack_node **stack,
 // this is the one from turk_algo.c:
 void	smallest_on_top(t_stack_node **a)
 {
+	// put a security here???
 	while ((*a)->number != find_smallest(*a)->number)
 	{
 		if (find_smallest(*a)->above_median)

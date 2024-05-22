@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:50:12 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/22 15:58:04 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:01:42 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void	turk_algo(t_stack_node **a, t_stack_node **b)
 	sort_3(a);
 	while (*b)
 	{
-		ft_printf("here i am\n");
+		//ft_printf("here i am\n");
 		init_nodes_b(*a, *b);
-		ft_printf("here i am again\n");
+		//ft_printf("here i am again\n");
 		move_b_to_a(a, b);
 	}
 	current_index(*a);

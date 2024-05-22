@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:31:11 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 15:35:32 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:52:57 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include "./ft_printf/ft_printf.h"
+
+# define PL ft_printf("line: %i ; file: %s\n", __LINE__, __FILE__);
 
 typedef struct s_stack_node
 {

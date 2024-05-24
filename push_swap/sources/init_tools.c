@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:39:04 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/22 18:25:33 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:21:21 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,18 @@ void	prep_for_push(t_stack_node **stack,
 						char stack_name)
 {
 	if (!stack || !top_node)
-		return ;	
+		return ;
 	while (*stack != top_node)
 	{
 		if (stack_name == 'a')
 		{
-			if (top_node->above_median) //segfaulty one
+			if (top_node->above_median)
 			{
 				ra(stack, false);
 			}
 			else
 			{
-				rra(stack, false); // extra brackets here
+				rra(stack, false);
 			}
 		}
 		else if (stack_name == 'b')
@@ -95,10 +95,8 @@ void	prep_for_push(t_stack_node **stack,
 	}
 }
 
-// this is the one from turk_algo.c:
 void	smallest_on_top(t_stack_node **a)
 {
-	// put a security here???
 	while ((*a)->number != find_smallest(*a)->number)
 	{
 		if (find_smallest(*a)->above_median)
@@ -107,37 +105,3 @@ void	smallest_on_top(t_stack_node **a)
 			rra(a, false);
 	}
 }
-
-/*
-// version to help with segfaults below in case of a returned null by find_smallest
-// would need to avoid assignment in controle structure error however
-
-void	smallest_on_top(t_stack_node **a, t_stack_node **b)
-{
-	t_stack_node	*smallest_node;
-
-	while ((*a)->number != (smallest_node = find_smallest(*a))->number)
-	{
-		if (smallest_node && smallest_node->above_median)
-			ra(a, false);
-		else
-			rra(a, false);
-	}
-}
-
-// this is the new fancy once but it didn't fix the problem
-void	smallest_on_top(t_stack_node **a)
-{
-	t_stack_node	*smallest_node;
-
-	smallest_node = find_smallest(*a);
-	while ((*a)->number != smallest_node->number)
-	{
-		if (smallest_node && smallest_node->above_median)
-			ra(a, false);
-		else
-			rra(a, false);
-		smallest_node = find_smallest(*a);
-	}
-}
-*/

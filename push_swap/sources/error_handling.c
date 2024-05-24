@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:20:24 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/21 10:58:47 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:55:37 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,19 @@ void	free_stack(t_stack_node **stack)
 		current = tmp;
 	}
 	*stack = NULL;
+}
+
+void	free_split_result(char **split_result)
+{
+	int	i;
+
+	i = 0;
+	while (split_result[i])
+	{
+		free(split_result[i]);
+		i++;
+	}
+	free(split_result);
 }
 
 void	free_errors(t_stack_node **a)

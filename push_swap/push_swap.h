@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:31:11 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/22 17:52:57 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:50:25 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		error_syntax(char *s);
 int		error_duplicate(t_stack_node *a, int n);
 void	free_stack(t_stack_node **stack);
 void	free_errors(t_stack_node **a);
+void	free_split_result(char **split_result);
 
 // Initialisations
 

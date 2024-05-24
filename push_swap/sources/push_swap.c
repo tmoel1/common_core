@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:41:37 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/22 18:11:23 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:46:46 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int	main(int argc, char **argv)
 			turk_algo(&a, &b);
 	}
 	free_stack(&a);
+	if (argc == 2)
+		free_split_result(argv);
 	return (0);
 }

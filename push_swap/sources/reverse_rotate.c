@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 10:43:00 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/05/24 15:22:33 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:42:15 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	reverse_rotate(t_stack_node **stack)
 	last->next = *stack;
 	last->prev = NULL;
 	(*stack)->prev = last;
-	stack = last;
+	*stack = last;
 }
 
 void	rra(t_stack_node **a, bool print)

@@ -100,7 +100,10 @@ int	main(int argc, char **argv)
 
 
 
-// CLEAR NOMENGLATURE
+// CLEAR NOMENGLATURE //
+
+
+
 // -client
 
 void	send_character_bits(pid_t server_pid, char character)

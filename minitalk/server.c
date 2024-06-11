@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:40:35 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/11 11:22:06 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:26:09 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@ void	signal_handler(int sig)
 	}
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	struct sigaction	sa;
 
-	if (argc != 1)
+	(void)av;
+	if (ac != 1)
 	{
 		ft_printf("User Error\n");
 		return (1);
 	}
-	ft_printf("PID: %d", getpid());
+	ft_printf("PID: %d\n", getpid());
 	sa.sa_handler = signal_handler;
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);

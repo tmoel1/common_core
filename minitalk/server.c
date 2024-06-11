@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:40:35 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/11 15:26:09 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:43:53 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)
 		ft_printf("User Error\n");
 		return (1);
 	}
-	ft_printf("PID: %d\n", getpid());
+	ft_printf("Server PID: %d\n", getpid());
 	sa.sa_handler = signal_handler;
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);

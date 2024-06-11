@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes_push_swap.h                               :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoeller <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 16:32:24 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/04/15 16:32:25 by tmoeller         ###   ########.fr       */
+/*   Created: 2023/10/26 16:38:16 by tmoeller          #+#    #+#             */
+/*   Updated: 2023/10/26 16:38:19 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MY_LIB_H
-#define MY_LIB_H
-
-#include "src/libft/libft.h"
-#include "src/ft_printf/ft_printf.h"
-#include "src/GNL/get_next_line_bonus.h"
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+		c = (c + 32);
+	return (c);
+}

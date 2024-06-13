@@ -70,11 +70,8 @@ void		compute_mandelbrot(t_fractal *fractal);
 // julia.c
 void		compute_julia(t_fractal *fractal);
 
-// burning_ship.c
-void		compute_burning_ship(t_fractal *fractal);
-
 // main.c
-int			draw_fractal(t_fractal *fractal, char *query);
+int			draw_fractal(t_fractal *fractal, char *input);
 
 // mouse_and_keys.c
 int			key_hook(int key_code, t_fractal *fractal);
@@ -83,7 +80,6 @@ int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
 // draw.c
 void		*draw_mandelbrot(void *fractal_void);
 void		draw_julia(t_fractal *fractal);
-void		draw_burning_ship(t_fractal *fractal);
 
 #endif
 
@@ -177,13 +173,13 @@ void	init_mlx(t_fractal *fractal)
  * appropriate function to draw the fractal.
  *
  * @param    fractal   The fractal structure.
- * @param    query     The name of the fractal to draw.
+ * @param    input     The name of the fractal to draw.
  */
-int	draw_fractal(t_fractal *fractal, char *query)
+int	draw_fractal(t_fractal *fractal, char *imput) // change to user_input? or terminal input?
 {
-	if (!ft_strncmp(query, "mandelbrot", 11))
+	if (!ft_strncmp(input, "mandelbrot", 11))
 		draw_mandelbrot(fractal);
-	else if (!ft_strncmp(query, "julia", 6))
+	else if (!ft_strncmp(input, "julia", 6))
 	{
 		if (!fractal->cx && !fractal->cy)
 		{

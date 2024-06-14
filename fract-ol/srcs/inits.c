@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:19:15 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 16:58:34 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:54:01 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	init_fractal(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->color = 0x0000CD;
+	fractal->color = COLOR_CODE;
 	fractal->zoom = 300;
 	fractal->offset_x = -2.25;
 	fractal->offset_y = -1.65;
-	fractal->max_iterations = 42;
+	fractal->max_iterations = MAX_ITERATIONS;
 }
 
 void	init_mlx(t_fractal *fractal)

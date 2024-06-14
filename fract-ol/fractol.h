@@ -6,20 +6,23 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 09:41:18 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 17:45:25 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:30:18 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-// PUT A THING IN HERE DEFINING COLOUR SO THAT WE DON'T HAVE TO GO FIND IT IN THE CODE??
+
 # include "libft_ext/libft_ext.h"
 # include "minilibx/mlx.h"
 
 # include <math.h>
 # include <stdlib.h>
 
+// ADJUSTABLES
+# define COLOR_CODE 0x0000CD
 # define SIZE 1000
+# define MAX_ITERATIONS 42
 
 // KEYCODES
 # define ESC 53

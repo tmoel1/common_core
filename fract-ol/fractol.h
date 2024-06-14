@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 09:41:18 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 12:29:01 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:23:52 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 // # include <pthread.h>
 
-# define SIZE 700
+# define SIZE 1000
 // # define THREAD_WIDTH 7
 // # define THREAD_NUMBER 100
 
@@ -70,7 +70,7 @@ void		put_color_to_pixel(t_fractal *fractal, int x, int y, int colour);
 int			exit_fractal(t_fractal *fractal);
 double		generate_random_c(void);
 void		change_iterations(t_fractal *fractal, int key_code);
-double	ft_atod(char *s);
+double		ft_atod(char *s);
 
 // init.c
 void		init_fractal(t_fractal *fractal);

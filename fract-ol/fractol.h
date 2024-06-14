@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 09:41:18 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 13:23:52 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:10:04 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int			draw_fractal(t_fractal *fractal, char *input);
 // mouse_and_keys.c
 int			key_hook(int key_code, t_fractal *fractal);
 int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
+//int			mouse_hook(int mouse_code, t_fractal *fractal);
+
 
 // draw.c
 void		*draw_mandelbrot(void *fractal_void);

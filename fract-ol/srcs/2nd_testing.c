@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 09:56:45 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 13:34:29 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:27:37 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ void	init_fractal(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->color = 0xFCBE11;
+	fractal->color = 0x0000CD;
 	fractal->zoom = 300;
-	fractal->offset_x = -1.21;
-	fractal->offset_y = -1.21;
+	fractal->offset_x = -2.25;
+	fractal->offset_y = -1.65;
 	fractal->max_iterations = 42;
 }
 
@@ -106,25 +106,6 @@ int	draw_fractal(t_fractal *fractal, char *input) // change to user_input? or te
 	return (0);
 }
 
-int	main(int argc, char **argv)
-{
-	t_fractal	*fractal;
-
-	if (argc < 2)
-	{
-		ft_printf("Try: ./fractol <fractal>\nFractols: mandelbrot or julia");
-		return (0);
-	}
-	fractal = malloc(sizeof(t_fractal));
-	init_fractal(fractal);
-	init_mlx(fractal);
-	mlx_key_hook(fractal->window, key_hook, fractal);
-	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
-	mlx_hook(fractal->window, 17, 0L, exit_fractal, fractal);
-	draw_first_fractal(fractal, argc, argv);
-	mlx_loop(fractal->mlx);
-	return (0);
-}
 
 void	draw_first_julia(t_fractal *fractal, int argc, char **argv)
 {
@@ -261,6 +242,9 @@ void	compute_julia(t_fractal *fractal)
  * @param    y         The y coordinate of the mouse.
  * @param    zoom      1 for zoom, -1 for dezoom.
  */
+
+// old working:
+
 void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
 	double	zoom_level;
@@ -285,6 +269,7 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
 	else
 		return ;
 }
+
 
 /**
  * @brief    The handler for keyboard events.
@@ -316,14 +301,6 @@ int	key_hook(int key_code, t_fractal *fractal)
 		fractal->offset_y -= 42 / fractal->zoom;
 	else if (key_code == DOWN)
 		fractal->offset_y += 42 / fractal->zoom;
-	else if (key_code == R)
-		init_fractal(fractal);
-	else if (key_code == C)
-		fractal->color += (255 * 255 * 255) / 100;
-	else if (key_code == J)
-		set_random_julia(&fractal->cx, &fractal->cx);
-	else if (key_code == M || key_code == P)
-		change_iterations(fractal, key_code);
 	draw_fractal(fractal, fractal->name);
 	return (0);
 }
@@ -339,6 +316,7 @@ int	key_hook(int key_code, t_fractal *fractal)
  * @param    y          The y coordinate of the mouse.
  * @param    fractal
  */
+// old working:
 
 int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
@@ -349,8 +327,6 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 	draw_fractal(fractal, fractal->name);
 	return (0);
 }
-
-
 // tools.c
 
 #include "../fractol.h"
@@ -371,11 +347,6 @@ void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
 	buffer[(y * fractal->size_line / 4) + x] = color;
 }
 
-/**
- * @brief    Exits the program.
- *
- * @param    fractal
- */
 int	exit_fractal(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image);
@@ -384,50 +355,6 @@ int	exit_fractal(t_fractal *fractal)
 	free(fractal);
 	exit(1);
 	return (0);
-}
-
-/**
- * @brief    Generates a random double between -1.5 and 1.5.
- *
- * @return   double    The random double.
- */
-double	generate_random_c(void)
-{
-	return (((double)rand() / RAND_MAX) * 3.0 - 1.5);
-}
-
-/**
- * @brief    Increases or decreases the number of iterations.
- * The lower the number of iterations is, the faster the fractal is generated.
- *
- * @param    fractal
- * @param    key_code
- */
-void	change_iterations(t_fractal *fractal, int key_code)
-{
-	if (key_code == M)
-	{
-		if (fractal->max_iterations > 42)
-			fractal->max_iterations -= 42;
-	}
-	else if (key_code == P)
-	{
-		if (fractal->max_iterations < 4200)
-			fractal->max_iterations += 42;
-	}
-}
-
-
-/**
- * @brief    Sets the constants of Julia to random values.
- *
- * @param    cx        A pointer to the cx constant.
- * @param    cy        A pointer to the cy constant.
- */
-void	set_random_julia(double *cx, double *cy)
-{
-	*cx = generate_random_c();
-	*cy = generate_random_c();
 }
 
 double	ft_atod(char *s)

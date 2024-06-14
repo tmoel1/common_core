@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:21:56 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 16:24:29 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:03:15 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	*draw_mandelbrot(void *fractal_void)
 	return (NULL);
 }
 
-
 void	draw_julia(t_fractal *fractal)
 {
 	fractal->x = 0;
@@ -74,7 +73,7 @@ void	draw_julia(t_fractal *fractal)
 
 void	draw_first_fractal(t_fractal *fractal, int argc, char **argv)
 {
-	if (argc < 2 || argc > 4) // Check if the number of arguments is correct
+	if (argc < 2 || argc > 4)
 	{
 		ft_printf("Usage: ./fractol <fractal> [<cx> <cy>]\n");
 		exit_fractal(fractal);
@@ -83,18 +82,19 @@ void	draw_first_fractal(t_fractal *fractal, int argc, char **argv)
 		draw_mandelbrot(fractal);
 	else if (!ft_strncmp(argv[1], "julia", 6))
 		draw_first_julia(fractal, argc, argv);
-	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, 0, 0);
+	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, \
+		0, 0);
 	return ;
 }
 
 void	draw_first_julia(t_fractal *fractal, int argc, char **argv)
 {
-	if (argc == 4) // Check if cx and cy are provided
+	if (argc == 4)
 	{
 		fractal->cx = ft_atod(argv[2]);
 		fractal->cy = ft_atod(argv[3]);
 	}
-	else // Default Julia set parameters
+	else
 	{
 		fractal->cx = -0.70176;
 		fractal->cy = -0.3842;

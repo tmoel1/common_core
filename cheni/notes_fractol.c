@@ -4,6 +4,70 @@ https://github.com/PedroZappa/42_fractol?tab=readme-ov-file
 
 
 
+#ifndef FRACTOL_H
+# define FRACTOL_H
+
+# include "libft_ext/libft_ext.h"
+# include "minilibx/mlx.h"
+
+# include <math.h>
+# include <stdlib.h>
+// # include <pthread.h>
+
+# define SIZE 1000
+// # define THREAD_WIDTH 7
+// # define THREAD_NUMBER 100
+
+// KEYCODES
+# define ESC 53
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
+# define R 15
+# define C 8
+# define H 4
+# define J 38
+# define P 35
+# define M 46
+
+// MOUSECODES
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
+
+typedef struct s_fractal
+{
+	void	*mlx;
+	void	*window;
+	void	*image;
+	void	*pointer_to_image;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian; // used where???????????????????????????????????????????????
+	int		x;
+	int		y;
+	double	zx;
+	double	zy;
+	double	cx;
+	double	cy;
+	int		color;
+	double	offset_x;
+	double	offset_y;
+	double	zoom;
+	char	*name;
+	int		max_iterations;
+}			t_fractal;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

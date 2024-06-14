@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:25:56 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 16:31:31 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:03:35 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
 		return ;
 }
 
-
 /**
  * @brief    The handler for keyboard events.
  * 				ESC: exit the program.
@@ -82,7 +81,6 @@ int	key_hook(int key_code, t_fractal *fractal)
 	draw_fractal(fractal, fractal->name);
 	return (0);
 }
-
 
 /**
  * @brief    The handler for mouse events.

@@ -6,13 +6,13 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 09:41:18 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 17:02:36 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:45:25 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-
+// PUT A THING IN HERE DEFINING COLOUR SO THAT WE DON'T HAVE TO GO FIND IT IN THE CODE??
 # include "libft_ext/libft_ext.h"
 # include "minilibx/mlx.h"
 
@@ -79,7 +79,7 @@ void	init_mlx(t_fractal *fractal);
 int		main(int argc, char **argv);
 
 //tools.c
-void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color);
+void	color_pixel(t_fractal *fractal, int x, int y, int color);
 int		exit_fractal(t_fractal *fractal);
 double	ft_atod(char *s);
 

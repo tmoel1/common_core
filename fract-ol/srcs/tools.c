@@ -6,13 +6,13 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:32:01 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 16:39:18 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:06:53 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
+void	color_pixel(t_fractal *fractal, int x, int y, int color)
 {
 	int	*buffer;
 

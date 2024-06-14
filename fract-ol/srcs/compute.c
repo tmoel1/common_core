@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:24:57 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 16:25:24 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:06:06 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void	compute_mandelbrot(t_fractal *fractal)
 			break ;
 	}
 	if (i == fractal->max_iterations)
-		put_color_to_pixel(fractal, fractal->x, fractal->y, 0x000000);
+		color_pixel(fractal, fractal->x, fractal->y, 0x000000);
 	else
-		put_color_to_pixel(fractal, fractal->x, fractal->y, (fractal->color
+		color_pixel(fractal, fractal->x, fractal->y, (fractal->color
 				* i));
 }
 
@@ -92,8 +92,8 @@ void	compute_julia(t_fractal *fractal)
 			break ;
 	}
 	if (i == fractal->max_iterations)
-		put_color_to_pixel(fractal, fractal->x, fractal->y, 0x000000);
+		color_pixel(fractal, fractal->x, fractal->y, 0x000000);
 	else
-		put_color_to_pixel(fractal, fractal->x, fractal->y, (fractal->color * (i
+		color_pixel(fractal, fractal->x, fractal->y, (fractal->color * (i
 					% 255)));
 }

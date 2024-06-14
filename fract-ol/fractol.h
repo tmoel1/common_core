@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 09:41:18 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 09:41:26 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:29:01 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "libft/libft_ext.h"
+# include "libft_ext/libft_ext.h"
 # include "minilibx/mlx.h"
 
 # include <math.h>
@@ -70,6 +70,7 @@ void		put_color_to_pixel(t_fractal *fractal, int x, int y, int colour);
 int			exit_fractal(t_fractal *fractal);
 double		generate_random_c(void);
 void		change_iterations(t_fractal *fractal, int key_code);
+double	ft_atod(char *s);
 
 // init.c
 void		init_fractal(t_fractal *fractal);
@@ -80,9 +81,12 @@ void		compute_mandelbrot(t_fractal *fractal);
 
 // julia.c
 void		compute_julia(t_fractal *fractal);
+void		set_random_julia(double *cx, double *cy);
 
 // main.c
 int			draw_fractal(t_fractal *fractal, char *input);
+//int	draw_fractal(t_fractal *fractal, int argc, char **argv);
+
 
 // mouse_and_keys.c
 int			key_hook(int key_code, t_fractal *fractal);
@@ -91,5 +95,13 @@ int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
 // draw.c
 void		*draw_mandelbrot(void *fractal_void);
 void		draw_julia(t_fractal *fractal);
+//     new
+void	draw_first_julia(t_fractal *fractal, int argc, char **argv);
+void	draw_first_fractal(t_fractal *fractal, int argc, char **argv);
+
+
+
+char	*ft_new_strncpy(char *dest, const char *src, size_t n);
+
 
 #endif

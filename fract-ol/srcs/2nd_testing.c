@@ -1,11 +1,19 @@
-// library file
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   2nd_testing.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/14 09:56:45 by tmoeller          #+#    #+#             */
+/*   Updated: 2024/06/14 12:32:07 by tmoeller         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 
 // draw.c
 
-#include "../include/fractol.h"
+#include "../fractol.h"
 
 void	*draw_mandelbrot(void *fractal_void)
 {
@@ -47,7 +55,7 @@ void	draw_julia(t_fractal *fractal)
 
 // init.c
 
-#include "../include/fractol.h"
+#include "../fractol.h"
 
 void	init_fractal(t_fractal *fractal)
 {
@@ -73,10 +81,10 @@ void	init_mlx(t_fractal *fractal)
 
 // main.c
 
-#include "../include/fractol.h"
+#include "../fractol.h"
 
-
-int	draw_fractal(t_fractal *fractal, char *imput) // change to user_input? or terminal input?
+//orignal working:
+int	draw_fractal(t_fractal *fractal, char *input) // change to user_input? or terminal input?
 {
 	if (!ft_strncmp(input, "mandelbrot", 11))
 		draw_mandelbrot(fractal);
@@ -99,11 +107,52 @@ int	draw_fractal(t_fractal *fractal, char *imput) // change to user_input? or te
 	return (0);
 }
 
+#include <stdio.h> // Include necessary headers for printf and atof
+#include <stdlib.h> // Include necessary headers for atof
+//new fancy:
+/*
+int	draw_fractal(t_fractal *fractal, int argc, char **argv)
+{
+	if (argc < 2 || argc > 4) // Check if the number of arguments is correct
+	{
+		ft_printf("Usage: ./fractol <fractal> [<cx> <cy>]\n");
+		exit_fractal(fractal);
+	}
+	if (!ft_strncmp(argv[1], "mandelbrot", 11))
+		draw_mandelbrot(fractal);
+	else if (!ft_strncmp(argv[1], "julia", 6))
+	{
+		if (argc == 4) // Check if cx and cy are provided
+		{
+			fractal->cx = ft_atod(argv[2]);
+			fractal->cy = ft_atod(argv[3]);
+		}
+		else // Default Julia set parameters
+		{
+			fractal->cx = -0.70176;
+			fractal->cy = -0.3842;
+		}
+		draw_julia(fractal);
+	}
+	else
+	{
+		ft_printf("Please only input mandelbrot or julia for <fractal>\n");
+		exit_fractal(fractal);
+	}
+	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, 0, 0);
+	return (0);
+}
+*/
+
+// draw_fractal(fractal, argc, argv)
+
+//oringal working:
+
 int	main(int argc, char **argv)
 {
 	t_fractal	*fractal;
 
-	if (argc != 2)
+	if (argc < 2)
 	{
 		ft_printf("Try: ./fractol <fractal>\nFractols: mandelbrot or julia");
 		return (0);
@@ -114,14 +163,135 @@ int	main(int argc, char **argv)
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
 	mlx_hook(fractal->window, 17, 0L, exit_fractal, fractal);
-	draw_fractal(fractal, argv[1]);
+	//draw_fractal(fractal, argv[1]);
+	draw_first_fractal(fractal, argc, argv);
 	mlx_loop(fractal->mlx);
 	return (0);
 }
 
+/////////////////
+
+void	draw_first_julia(t_fractal *fractal, int argc, char **argv)
+{
+	if (argc == 4) // Check if cx and cy are provided
+	{
+		fractal->cx = ft_atod(argv[2]);
+		fractal->cy = ft_atod(argv[3]);
+	}
+	else // Default Julia set parameters
+	{
+		fractal->cx = -0.70176;
+		fractal->cy = -0.3842;
+	}
+	draw_julia(fractal);
+	return ;
+}
+
+
+void	draw_first_fractal(t_fractal *fractal, int argc, char **argv)
+{
+	if (argc < 2 || argc > 4) // Check if the number of arguments is correct
+	{
+		ft_printf("Usage: ./fractol <fractal> [<cx> <cy>]\n");
+		exit_fractal(fractal);
+	}
+	if (!ft_strncmp(argv[1], "mandelbrot", 11))
+		draw_mandelbrot(fractal);
+	else if (!ft_strncmp(argv[1], "julia", 6))
+		draw_first_julia(fractal, argc, argv);
+	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, 0, 0);
+	return ;
+}
+
+//////////////////
+
+
+
+
+
+
+//new fancy:
+/*
+int	main(int argc, char **argv)
+{
+	t_fractal	*fractal;
+
+	if (argc >= 2)
+	{
+		ft_printf("Try: ./fractol <fractal>\nFractols: mandelbrot or julia");
+		return (0);
+	}
+	fractal = malloc(sizeof(t_fractal));
+	init_fractal(fractal);
+	init_mlx(fractal);
+	mlx_key_hook(fractal->window, key_hook, fractal);
+	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
+	mlx_hook(fractal->window, 17, 0L, exit_fractal, fractal);
+	draw_fractal(fractal, argc, argv);
+	mlx_loop(fractal->mlx);
+	return (0);
+}
+*/
+
+// determine_fractal_type
+
+
+
+//////////// other option
+
+/*
+int	draw_fractal(t_fractal *fractal, char *input)
+{
+	if (!ft_strncmp(input, "mandelbrot", 11))
+		draw_mandelbrot(fractal);
+	else if (!ft_strncmp(input, "julia", 6))
+	{
+		if (!fractal->cx && !fractal->cy)
+		{
+			if (argc != 4)
+			{
+				ft_printf("Usage: ./fractol julia <cx> <cy>\n");
+				exit_fractal(fractal);
+			}
+			fractal->cx = atod(argv[2]);
+			fractal->cy = atod(argv[3]);
+		}
+		draw_julia(fractal);
+	}
+	else
+	{
+		ft_printf("Please only input mandelbrot or julia for <fractal>\n");
+		exit_fractal(fractal);
+	}
+	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, 0, 0);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_fractal	*fractal;
+
+	if (argc < 2)
+	{
+		ft_printf("Try: ./fractol <fractal>\nFractols: mandelbrot or julia");
+		return (0);
+	}
+	fractal = malloc(sizeof(t_fractal));
+	init_fractal(fractal);
+	init_mlx(fractal);
+	mlx_key_hook(fractal->window, key_hook, fractal);
+	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
+	mlx_hook(fractal->window, 17, 0L, exit_fractal, fractal);
+	draw_fractal(fractal, argv[1], argc, argv);
+	mlx_loop(fractal->mlx);
+	return (0);
+}
+*/
+
+
 // compute_fractals.c
 
-#include "../include/fractol.h"
+#include "../fractol.h"
 
 /**
  * @brief    Calculates the Mandelbrot fractal for one pixel.
@@ -211,7 +381,7 @@ void	compute_julia(t_fractal *fractal)
 
 // user_inputs.c
 
-#include "../include/fractol.h"
+#include "../fractol.h"
 
 /**
  * @brief    Zooms or dezooms the fractal.
@@ -262,6 +432,8 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
  * @param    key_code
  * @param    fractal
  */
+//old working:
+
 int	key_hook(int key_code, t_fractal *fractal)
 {
 	if (key_code == ESC)
@@ -286,6 +458,40 @@ int	key_hook(int key_code, t_fractal *fractal)
 	return (0);
 }
 
+
+//new fancy:
+/*
+int key_hook(int key_code, t_fractal *fractal)
+{
+    if (key_code == ESC)
+        exit(1);
+    else if (key_code == LEFT)
+        fractal->offset_x -= 42 / fractal->zoom;
+    else if (key_code == RIGHT)
+        fractal->offset_x += 42 / fractal->zoom;
+    else if (key_code == UP)
+        fractal->offset_y -= 42 / fractal->zoom;
+    else if (key_code == DOWN)
+        fractal->offset_y += 42 / fractal->zoom;
+    else if (key_code == R)
+        init_fractal(fractal);
+    else if (key_code == C)
+        fractal->color += (255 * 255 * 255) / 100;
+    else if (key_code == J)
+        set_random_julia(&fractal->cx, &fractal->cy);
+    else if (key_code == M || key_code == P)
+        change_iterations(fractal, key_code);
+
+    // Update fractal->name here if cx or cy are modified
+    if (key_code == J || key_code == M || key_code == P)
+        ft_new_strncpy(fractal->name, argv[1], 5);
+
+    draw_fractal(fractal, fractal->name);
+    return (0);
+}
+*/
+
+
 /**
  * @brief    The handler for mouse events.
  * 				SCROLL_UP: zoom in.
@@ -296,6 +502,8 @@ int	key_hook(int key_code, t_fractal *fractal)
  * @param    y          The y coordinate of the mouse.
  * @param    fractal
  */
+//old working:
+
 int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
 	if (mouse_code == SCROLL_UP)
@@ -306,9 +514,28 @@ int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 	return (0);
 }
 
+
+//new fancy:
+/*
+int mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
+{
+    if (mouse_code == SCROLL_UP)
+        zoom(fractal, x, y, 1);
+    else if (mouse_code == SCROLL_DOWN)
+        zoom(fractal, x, y, -1);
+
+    // Update fractal->name here if cx or cy are modified
+    ft_new_strncpy(fractal->name, argv[1], 5);
+
+    draw_fractal(fractal, fractal->name);
+    return (0);
+}
+*/
+
+
 // tools.c
 
-#include "../include/fractol.h"
+#include "../fractol.h"
 
 /**
  * @brief    Puts the provided color to the pixel at the provided coordinates.
@@ -384,3 +611,53 @@ void	set_random_julia(double *cx, double *cy)
 	*cx = generate_random_c();
 	*cy = generate_random_c();
 }
+
+double	ft_atod(char *s)
+{
+	long	integral;
+	double	fractional;
+	double	power;
+	int		sign;
+
+	integral = 0;
+	fractional = 0;
+	sign = 1;
+	power = 1;
+	while (*s == ' ' || (*s >= '\t' && *s <= '\n'))
+		++s;
+	while (*s == '+' || *s == '-')
+		if (*s++ == '-')
+			sign = -sign;
+	while (*s != '.' && *s)
+		integral = (integral * 10) + (*s++ - '0');
+	if (*s == '.')
+		++s;
+	while (*s)
+	{
+		power /= 10;
+		fractional = fractional + (*s++ - '0') * power;
+	}
+	return ((integral + fractional) * sign);
+}
+/*
+
+#include <stddef.h>
+
+char	*ft_new_strncpy(char *dest, const char *src, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (src[i] && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';  // Ensure remaining bytes in dest are null terminated
+		i++;
+	}
+	return (dest);
+}
+*/

@@ -73,7 +73,8 @@ void	draw_julia(t_fractal *fractal)
 
 void	draw_first_fractal(t_fractal *fractal, int argc, char **argv)
 {
-	if (argc < 2 || argc > 4)
+	// if (argc < 2 || argc > 4)
+	if (!argc == 2 || !argc == 4)
 	{
 		ft_printf("Usage: ./fractol <fractal> [<cx> <cy>]\n");
 		exit_fractal(fractal);

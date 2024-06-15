@@ -174,6 +174,10 @@ This line of code is a direct manipulation of the image buffer to set the color 
 
 #include "../fractol.h"
 
+
+
+/* the 17 refers to the window close button, and associated event being to exit function*/
+
 int	main(int argc, char **argv)
 {
 	t_fractal	*fractal;

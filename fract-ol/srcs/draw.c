@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:21:56 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 17:03:15 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/15 12:32:44 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	draw_julia(t_fractal *fractal)
 
 void	draw_first_fractal(t_fractal *fractal, int argc, char **argv)
 {
-	// if (argc < 2 || argc > 4)
-	if (!argc == 2 || !argc == 4)
+	if (argc < 2 || argc > 4)
+	//if (argc < 2 || argc == 3 || argc > 4)
 	{
 		ft_printf("Usage: ./fractol <fractal> [<cx> <cy>]\n");
 		exit_fractal(fractal);

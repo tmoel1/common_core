@@ -6,7 +6,7 @@
 #    By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 09:34:17 by tmoeller          #+#    #+#              #
-#    Updated: 2024/06/14 10:47:49 by tmoeller         ###   ########.fr        #
+#    Updated: 2024/06/15 12:15:22 by tmoeller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ MLX_FLAGS = -lm -lz -framework OpenGL -framework AppKit
 # Compiler + Flags
 CC = cc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror ${LIB_INC} ${MLX_INC}
+CFLAGS = -Wall -Wextra -Werror ${LIB_INC} ${MLX_INC} 
 
 # Default rule for .c to .o conversion
 .c.o:

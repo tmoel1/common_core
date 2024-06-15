@@ -6,7 +6,7 @@
 /*   By: tmoeller <tmoeller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:32:01 by tmoeller          #+#    #+#             */
-/*   Updated: 2024/06/14 17:06:53 by tmoeller         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:04:51 by tmoeller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,31 @@ int	exit_fractal(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image);
 	mlx_destroy_window(fractal->mlx, fractal->window);
-	free(fractal->mlx);
 	free(fractal);
+	//ft_printf("got this far\n");
 	exit(1);
 	return (0);
 }
+/*
+int	exit_fractal(t_fractal *fractal)
+{
+    if (fractal->pointer_to_image)
+        mlx_destroy_image(fractal->mlx, fractal->image);
+    if (fractal->window)
+        mlx_destroy_window(fractal->mlx, fractal->window);
+    if (fractal->mlx)
+    {
+        // mlx_destroy_display(fractal->mlx); // Uncomment if using X11 and needed
+        free(fractal->mlx);
+    }
+    if (fractal)
+        free(fractal);
+    exit(1);
+    return (0);
+}
+*/
+
+
 
 double	ft_atod(char *s)
 {

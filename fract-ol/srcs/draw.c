@@ -25,11 +25,11 @@ int	draw_fractal(t_fractal *fractal, char *input)
 		}
 		draw_julia(fractal);
 	}
-	else
-	{
-		ft_printf("Please only input mandelbrot or julia for <fractal>\n");
-		exit_fractal(fractal);
-	}
+	//else
+	//{
+	//	ft_printf("Please only input mandelbrot or julia for <fractal>\n");
+	//	exit_fractal(fractal);
+	//}
 	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, 0,
 		0);
 	return (0);
